@@ -1,25 +1,31 @@
 import './assets/css/main.scss'
 import './assets/css/app.css'
-import Chart from './component/chart'
-let chart = new Chart('#bar', {
-  title: {
-      text: 'ECharts 入门示例'
-  },
+import Bar from './component/bar'
+let bar = Bar.init({
+  dom: '#bar',
   grid: {
-    width: '100%',
-    height: '100%',
+    x1: 40,
+    x2: 40,
+    y1: 30,
+    y2: 40
   },
-  tooltip: {},
-  legend: {
-      data:['销量']
-  },
-  xAxis: {
-      data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-  },
-  yAxis: {},
-  series: [{
-      name: '销量',
-      type: 'bar',
-      data: [5, 20, 36, 10, 10, 20]
-  }]
+  xAxis: [{
+    type: 'category',
+    data: ['周一', '周二', '周三', '周四', '周五', '周六']
+  }],
+  yAxis: [{
+    type: 'value'
+  }],
+  series: [
+    {
+      data: [39, 29, 10, 50, 19,60],
+      itemStyle: {
+        barWidth: 40,
+        barGap: 0.3, //0.1*30为实际空格
+        textStyle: {
+          show: true
+        }
+      },
+    }
+  ]
 });
